@@ -1,0 +1,45 @@
+name: Rule idea
+description: Suggest a new check, or a change to how scoring works.
+title: "[rule] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Rules are cheap to add and easy to get wrong. The three questions below are the whole bar.
+  - type: textarea
+    id: signal
+    attributes:
+      label: What does it detect?
+      description: One sentence. Which repository state should this catch?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does a contributor care?
+      description: What goes wrong today when this is missing?
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: How is it decided offline?
+      description: Which files or git metadata does it read? It must work without network access.
+    validations:
+      required: true
+  - type: input
+    id: weight
+    attributes:
+      label: Suggested weight
+      description: Points out of 100. Weights must keep summing to 100.
+      placeholder: "5"
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: This is decidable from the working tree alone.
+          required: true
+        - label: I checked that no existing rule already covers it.
+          required: true
