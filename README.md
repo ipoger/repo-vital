@@ -1,5 +1,7 @@
 # repo-vital
 
+English | [中文](README.zh-CN.md)
+
 [![CI](https://github.com/ipoger/repo-vital/actions/workflows/ci.yml/badge.svg)](https://github.com/ipoger/repo-vital/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)
@@ -158,18 +160,3 @@ repository: if the score drops below 100, the build fails.
 ## License
 
 [MIT](LICENSE) © 2026 ipoger
-
----
-
-## 中文简介
-
-**repo-vital 是一个零依赖的命令行工具，用来体检一个开源仓库对贡献者是否友好。**
-
-它只读本地文件，不联网，跑一条命令就能得到 0–100 的分数，以及一份按“性价比”排序的待办清单——比如“补 LICENSE 能加 15 分，补 PR 模板只加 2 分”。
-
-```sh
-python3 -m repo_vital .        # 体检当前目录
-python3 -m repo_vital . --json # 输出 JSON，方便接 CI 或看板
-```
-
-设计上的三个取舍：只做离线可判定的规则、不要配置文件、每条失败都必须给出下一步动作。权重是主观的——license 和 tests 各占 15 分，因为缺了它们别人**根本没法**贡献；PR 模板只占 2 分，因为它只是锦上添花。
